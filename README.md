@@ -109,14 +109,18 @@ You can change any GPIO using menuconfig.
 
 |93Cx6||ESP32|
 |:-:|:-:|:-:|
-|CS|--|GPIO12|
-|SK|--|GPIO13|
-|DI|--|GPIO14|
-|DO|--|GPIO15(*2)|
+|CS|--|GPIO12(*1)|
+|SK|--|GPIO13(*1)|
+|DI|--|GPIO14(*1)|
+|DO|--|GPIO15(*1)(*2)|
 |GND|--|GND|
 |ORG|--|5V(*2)|
 |NC|--|N/C|
 |Vcc|--|5V(*2)|
+
+(*1)   
+You can change any GPIO using menuconfig.   
+
 
 (*2)   
 **It's insufficient in 3.3V Power supply.**   
