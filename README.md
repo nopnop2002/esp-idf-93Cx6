@@ -103,7 +103,7 @@ You can change any GPIO using menuconfig.
 **You have to supply 5V.**   
 **So you have to shift level about DO line.**   
 
-![esp32-93cx6-byte](https://user-images.githubusercontent.com/6020549/79865289-e3d83b00-8415-11ea-9f10-3dba2091c29c.jpg)
+![esp32-93cx6-byte](https://user-images.githubusercontent.com/6020549/79865683-855f8c80-8416-11ea-9291-8c6f1168bf5a.jpg)
 
 # Wireing for x16 Organization
 
@@ -127,7 +127,7 @@ You can change any GPIO using menuconfig.
 **You have to supply 5V.**   
 **So you have to shift level about DO line.**   
 
-![esp32-93cx6-word](https://user-images.githubusercontent.com/6020549/79865301-e76bc200-8415-11ea-8956-ebd6f47a7325.jpg)
+![esp32-93cx6-word](https://user-images.githubusercontent.com/6020549/79865692-885a7d00-8416-11ea-95f6-ebd20640af7c.jpg)
 
 ---
 
