@@ -4,7 +4,7 @@ Three-Wire Serial EEPROM Access Library for esp-idf.
 # Configure
 You have to set this config value with menuconfig.   
 - CONFIG_MODEL   
-- CONFIG_SS_GPIO   
+- CONFIG_CS_GPIO   
 - CONFIG_SK_GPIO   
 - CONFIG_DI_GPIO   
 - CONFIG_DO_GPIO   
@@ -93,7 +93,7 @@ uint16_t eeprom_read(EEPROM_T *dev, uint16_t addr)
 |GND|--|GND|
 |ORG|--|GND|
 |NC|--|N/C|
-|Vcc|--|5V|
+|Vcc|--|5V(*2)|
 
 (*1)   
 You can change any GPIO using menuconfig.   
@@ -112,9 +112,9 @@ You can change any GPIO using menuconfig.
 |DI|--|GPIO14|
 |DO|--|GPIO15(*2)|
 |GND|--|GND|
-|ORG|--|5V|
+|ORG|--|5V(*2)|
 |NC|--|N/C|
-|Vcc|--|5V|
+|Vcc|--|5V(*2)|
 
 (*2)   
 **It's insufficient in 3.3V Power supply.**   
