@@ -1,0 +1,83 @@
+menu "EEPROM Configuration"
+
+	choice MODEL
+		prompt "EEPROM MODEL"
+		default 93C46
+		help
+			Select EEPROM Chip Model.
+		config 93C46
+			bool "93C46"
+			help
+				EEPROM is 93C46(1K Bit)
+		config 93C56
+			bool "93C56"
+			help
+				EEPROM is 93C56(2K Bit)
+		config 93C66
+			bool "93C66"
+			help
+				EEPROM is 93C66(4K Bit)
+		config 93C76
+			bool "93C76"
+			help
+				EEPROM is 93C76(8K Bit)
+		config 93C86
+			bool "93C86"
+			help
+				EEPROM is 93C86(16K Bit)
+	endchoice
+
+	config CS_GPIO
+		int "CS GPIO number"
+		range 0 34
+		default 12
+		help
+			GPIO number (IOxx) to CS.
+			Some GPIOs are used for other purposes (flash connections, etc.).
+			GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	config SK_GPIO
+		int "SK GPIO number"
+		range 0 34
+		default 13
+		help
+			GPIO number (IOxx) to SCK.
+			Some GPIOs are used for other purposes (flash connections, etc.).
+			GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	config DI_GPIO
+		int "DI GPIO number"
+		range 0 34
+		default 14
+		help
+			GPIO number (IOxx) to DI.
+			Some GPIOs are used for other purposes (flash connections, etc.).
+			GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	config DO_GPIO
+		int "DO GPIO number"
+		range 0 39
+		default 15
+		help
+			GPIO number (IOxx) to DO.
+			Some GPIOs are used for other purposes (flash connections, etc.).
+			GPIOs 35-39 are input-only so can be used as inputs.
+
+	choice ORG
+		prompt "EEPROM OrganizationL"
+		default ORG_BYTE
+		help
+			Select EEPROM Organization.
+		config ORG_BYTE
+			bool "BYTE"
+			help
+				EEPROM is x 8 organization
+		config ORG_WORD
+			bool "WORD"
+			help
+				EEPROM is x 16 organization
+	endchoice
+
+endmenu
+
+
