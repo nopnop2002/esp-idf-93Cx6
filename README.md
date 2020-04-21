@@ -103,6 +103,8 @@ You can change any GPIO using menuconfig.
 **You have to supply 5V.**   
 **So you have to shift level about DO line.**   
 
+![esp32-93cx6-byte](https://user-images.githubusercontent.com/6020549/79815341-78617f80-83bb-11ea-88ae-af769543af6b.jpg)
+
 # Wireing for x16 Organization
 
 |93Cx6||ESP32|
@@ -120,6 +122,8 @@ You can change any GPIO using menuconfig.
 **It's insufficient in 3.3V Power supply.**   
 **You have to supply 5V.**   
 **So you have to shift level about DO line.**   
+
+![esp32-93cx6-word](https://user-images.githubusercontent.com/6020549/79815345-7b5c7000-83bb-11ea-81a9-4bfa6e5edfb5.jpg)
 
 ---
 
