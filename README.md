@@ -1,5 +1,5 @@
 # esp-idf-93Cx6
-Three-Wire Serial EEPROM Access Driver for esp-idf.
+Three-Wire Serial EEPROM Driver for esp-idf.
 
 # Configure
 You have to set this config value with menuconfig.   
