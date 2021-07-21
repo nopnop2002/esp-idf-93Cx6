@@ -173,5 +173,5 @@ You can change any GPIO using menuconfig.
 ---
 # Note
 esp-idf provides a similar sample [here](https://github.com/espressif/esp-idf/tree/master/examples/peripherals/spi_master/hd_eeprom).   
-But it only supports 93c46.   
+But it only supports 93C46.   
 
