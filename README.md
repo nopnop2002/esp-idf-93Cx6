@@ -115,7 +115,7 @@ You can change any GPIO using menuconfig.
 |DO|--|GPIO15(*1)(*2)|
 |GND|--|GND|
 |ORG|--|5V(*2)|
-|NC|--|N/C|
+|DC|--|N/C|
 |Vcc|--|5V(*2)|
 
 (*1)   
