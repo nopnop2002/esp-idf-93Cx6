@@ -8,6 +8,7 @@ You have to set this config value with menuconfig.
 - CONFIG_SK_GPIO   
 - CONFIG_DI_GPIO   
 - CONFIG_DO_GPIO   
+- CONFIG_ORG   
 
 ![config-1](https://user-images.githubusercontent.com/6020549/79813215-fae74080-83b5-11ea-8b74-5f7e92977763.jpg)
 ![config-2](https://user-images.githubusercontent.com/6020549/79813213-fa4eaa00-83b5-11ea-8be8-ee6195dc1491.jpg)
