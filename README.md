@@ -92,7 +92,7 @@ uint16_t eeprom_read(EEPROM_T *dev, uint16_t addr)
 |DO|--|GPIO15(*1)(*2)|
 |GND|--|GND|
 |ORG|--|GND|
-|NC|--|N/C|
+|DC|--|N/C|
 |Vcc|--|5V(*2)|
 
 (*1)   
