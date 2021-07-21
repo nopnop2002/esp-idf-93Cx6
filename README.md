@@ -9,19 +9,37 @@ You have to set this config value with menuconfig.
 - CONFIG_DI_GPIO   
 - CONFIG_DO_GPIO   
 
-```
-git clone https://github.com/nopnop2002/esp-idf-93Cx6
-cd esp-idf-93Cx6
-make menuconfig
-make flash
-```
-
 ![config-1](https://user-images.githubusercontent.com/6020549/79813215-fae74080-83b5-11ea-8b74-5f7e92977763.jpg)
 ![config-2](https://user-images.githubusercontent.com/6020549/79813213-fa4eaa00-83b5-11ea-8be8-ee6195dc1491.jpg)
 ![config-3](https://user-images.githubusercontent.com/6020549/79813211-f91d7d00-83b5-11ea-86ab-d44a1e82d637.jpg)
 ![config-4](https://user-images.githubusercontent.com/6020549/79813216-fae74080-83b5-11ea-904f-587c6cea2a1c.jpg)
 
----
+# Installation for ESP32
+```
+git clone https://github.com/nopnop2002/esp-idf-93Cx6
+cd esp-idf-93Cx6
+idf.py set-target esp32
+idf.py menuconfig
+idf.py flash
+```
+
+# Installation for ESP32-S2
+```
+git clone https://github.com/nopnop2002/esp-idf-93Cx6
+cd esp-idf-93Cx6
+idf.py set-target esp32s2
+idf.py menuconfig
+idf.py flash
+```
+
+# Installation for ESP32-C3
+```
+git clone https://github.com/nopnop2002/esp-idf-93Cx6
+cd esp-idf-93Cx6
+idf.py set-target esp32c3
+idf.py menuconfig
+idf.py flash
+```
 
 # Interface
 
@@ -150,3 +168,9 @@ You can change any GPIO using menuconfig.
 ![93c86-bytes](https://user-images.githubusercontent.com/6020549/79813799-99c06c80-83b7-11ea-9ef5-4c3d2689dda5.jpg)
 
 ![93c86-word](https://user-images.githubusercontent.com/6020549/79813802-9c22c680-83b7-11ea-8021-bd04add299f9.jpg)
+
+---
+# Note
+esp-idf provides a similar sample [here](https://github.com/espressif/esp-idf/tree/master/examples/peripherals/spi_master/hd_eeprom).   
+But it only supports 93c46.   
+
