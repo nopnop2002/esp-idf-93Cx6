@@ -49,12 +49,15 @@ void org8Mode(EEPROM_T * dev, int bytes) {
 
 	// erase/write enable
 	eeprom_ew_enable(dev);
+	ESP_LOGD(TAG, "eeprom_ew_enable");
 
 	// erase all memory
 	eeprom_erase_all(dev);
+	ESP_LOGD(TAG, "eeprom_erase_all");
 
 	// write same data
 	eeprom_write_all(dev, 0x00);
+	ESP_LOGD(TAG, "eeprom_write_all");
 
 #if 0
 	// read first blcok 8bit mode

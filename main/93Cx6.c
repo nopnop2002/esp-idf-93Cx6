@@ -224,6 +224,7 @@ void wait_ready(EEPROM_T *dev)
 	gpio_set_level(dev->_CS, HIGH);
 	while(gpio_get_level(dev->_DO) != HIGH) {
 		usleep(DELAY_WAIT);
+		//vTaskDelay(1);
 	}
 	gpio_set_level(dev->_CS, LOW);
 }
