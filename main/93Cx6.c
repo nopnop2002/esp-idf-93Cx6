@@ -37,20 +37,24 @@ enum CC { // Control Codes
 int eeprom_open(EEPROM_T * dev, int16_t model, int16_t org, int16_t GPIO_CS, int16_t GPIO_SK, int16_t GPIO_DI, int16_t GPIO_DO)
 {
 	ESP_LOGI(__FUNCTION__, "GPIO_CS=%d",GPIO_CS);
-	gpio_pad_select_gpio( GPIO_CS );
+	//gpio_pad_select_gpio( GPIO_CS );
+	gpio_reset_pin( GPIO_CS );
 	gpio_set_direction( GPIO_CS, GPIO_MODE_OUTPUT );
 	gpio_set_level( GPIO_CS, LOW );
 
 	ESP_LOGI(__FUNCTION__, "GPIO_SK=%d",GPIO_SK);
-	gpio_pad_select_gpio( GPIO_SK );
+	//gpio_pad_select_gpio( GPIO_SK );
+	gpio_reset_pin( GPIO_SK );
 	gpio_set_direction( GPIO_SK, GPIO_MODE_OUTPUT );
 	
 	ESP_LOGI(__FUNCTION__, "GPIO_DI=%d",GPIO_DI);
-	gpio_pad_select_gpio( GPIO_DI );
+	//gpio_pad_select_gpio( GPIO_DI );
+	gpio_reset_pin( GPIO_DI );
 	gpio_set_direction( GPIO_DI, GPIO_MODE_OUTPUT );
 
 	ESP_LOGI(__FUNCTION__, "GPIO_DO=%d",GPIO_DO);
-	gpio_pad_select_gpio( GPIO_DO );
+	//gpio_pad_select_gpio( GPIO_DO );
+	gpio_reset_pin( GPIO_DO );
 	gpio_set_direction( GPIO_DO, GPIO_MODE_INPUT );
 
 	dev->_CS = GPIO_CS;
