@@ -103,16 +103,16 @@ uint16_t eeprom_read(EEPROM_T *dev, uint16_t addr)
 
 # Wireing for x8 Organization
 
-|93Cx6||ESP32|
-|:-:|:-:|:-:|
-|CS|--|GPIO12(*1)|
-|SK|--|GPIO13(*1)|
-|DI|--|GPIO14(*1)|
-|DO|--|GPIO15(*1)(*2)|
-|GND|--|GND|
-|ORG|--|GND|
-|DC|--|N/C|
-|Vcc|--|5V(*2)|
+|93Cx6||ESP32|ESP32-S2|ESP32-C3|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|CS|--|GPIO12|GPIO12|GPIO1|(*1)|
+|SK|--|GPIO13|GPIO13|GPIO2|(*1)|
+|DI|--|GPIO14|GPIO17|GPIO9|(*1)|
+|DO|--|GPIO15|GPIO18|GPIO10|(*1)(*2)|
+|GND|--|GND|GND|GND||
+|ORG|--|GND|GND|GND||
+|DC|--|N/C|N/C|N/C||
+|Vcc|--|5V|5V|5V|(*2)|
 
 (*1)   
 You can change any GPIO using menuconfig.   
@@ -126,16 +126,16 @@ You can change any GPIO using menuconfig.
 
 # Wireing for x16 Organization
 
-|93Cx6||ESP32|
-|:-:|:-:|:-:|
-|CS|--|GPIO12(*1)|
-|SK|--|GPIO13(*1)|
-|DI|--|GPIO14(*1)|
-|DO|--|GPIO15(*1)(*2)|
-|GND|--|GND|
-|ORG|--|5V(*2)|
-|DC|--|N/C|
-|Vcc|--|5V(*2)|
+|93Cx6||ESP32|ESP32-S2|ESP32-C3|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|CS|--|GPIO12|GPIO12|GPIO1|(*1)|
+|SK|--|GPIO13|GPIO13|GPIO2|(*1)|
+|DI|--|GPIO14|GPIO17|GPIO9|(*1)|
+|DO|--|GPIO15|GPIO18|GPIO10|(*1)(*2)|
+|GND|--|GND|GND|GND||
+|ORG|--|5V|5V|5V|(*2)|
+|DC|--|N/C|N/C|N/C||
+|Vcc|--|5V|5V|5V|(*2)|
 
 (*1)   
 You can change any GPIO using menuconfig.   
