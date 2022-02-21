@@ -103,7 +103,7 @@ uint16_t eeprom_read(EEPROM_T *dev, uint16_t addr)
 
 # Wireing for x8 Organization
 
-|93Cx6||ESP32|ESP32-S2|ESP32-C3|
+|93Cx6||ESP32|ESP32-S2|ESP32-C3||
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |CS|--|GPIO12|GPIO12|GPIO1|(*1)|
 |SK|--|GPIO13|GPIO13|GPIO2|(*1)|
@@ -126,7 +126,7 @@ You can change any GPIO using menuconfig.
 
 # Wireing for x16 Organization
 
-|93Cx6||ESP32|ESP32-S2|ESP32-C3|
+|93Cx6||ESP32|ESP32-S2|ESP32-C3||
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |CS|--|GPIO12|GPIO12|GPIO1|(*1)|
 |SK|--|GPIO13|GPIO13|GPIO2|(*1)|
