@@ -59,14 +59,22 @@ void org8Mode(EEPROM_T * dev, int bytes) {
 	eeprom_write_all(dev, 0x00);
 	ESP_LOGD(TAG, "eeprom_write_all");
 
-#if 0
+#if 1
 	// read first blcok 8bit mode
-	memset(rdata, 0, sizeof(rdata));
+	memset(rdata, 0xff, sizeof(rdata));
 	for(i=0;i<128;i++) {
 		mem_addr = i;
 		rdata[i] = eeprom_read(dev, mem_addr);
+		if (rdata[i] != 0) ESP_LOGE(TAG, "Erase Fail");
 	}
-	dump("8bit:address 0-128", 8, rdata, 128);
+
+	// read last blcok 8bit mode
+	memset(rdata, 0xff, sizeof(rdata));
+	for(i=0;i<128;i++) {
+		mem_addr = bytes - i;
+		rdata[i] = eeprom_read(dev, mem_addr);
+		if (rdata[i] != 0) ESP_LOGE(TAG, "Erase Fail");
+	}
 #endif
 
 	// write first blcok 8bit mode
@@ -119,14 +127,22 @@ void org16Mode(EEPROM_T * dev, int bytes) {
 	// write same data
 	eeprom_write_all(dev, 0x00);
 
-#if 0
+#if 1
 	// read first blcok 16bit mode
-	memset(rdata, 0, sizeof(rdata));
+	memset(rdata, 0xff, sizeof(rdata));
 	for(i=0;i<64;i++) {
 		mem_addr = i;
 		rdata[i] = eeprom_read(dev, mem_addr);
+		if (rdata[i] != 0) ESP_LOGE(TAG, "Erase Fail");
 	}
-	dump("16bit:address 0-64", 16, rdata, 64);
+
+	// read last blcok 16bit mode
+	memset(rdata, 0xff, sizeof(rdata));
+	for(i=0;i<64;i++) {
+		mem_addr = bytes - i;
+		rdata[i] = eeprom_read(dev, mem_addr);
+		if (rdata[i] != 0) ESP_LOGE(TAG, "Erase Fail");
+	}
 #endif
 
 	// write first blcok 16bit mode

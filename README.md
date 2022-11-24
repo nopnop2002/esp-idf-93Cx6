@@ -1,6 +1,19 @@
 # esp-idf-93Cx6
 Three-Wire Serial EEPROM Driver for esp-idf.
 
+# Software requirements   
+ESP-IDF V4.4/V5.0.   
+ESP-IDF V5 is required when using ESP32-C2.   
+
+# Installation
+```
+git clone https://github.com/nopnop2002/esp-idf-93Cx6
+cd esp-idf-93Cx6
+idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3}
+idf.py menuconfig
+idf.py flash
+```
+
 # Configure
 You have to set this config value with menuconfig.   
 - CONFIG_MODEL   
@@ -15,40 +28,12 @@ You have to set this config value with menuconfig.
 ![config-3](https://user-images.githubusercontent.com/6020549/79813211-f91d7d00-83b5-11ea-86ab-d44a1e82d637.jpg)
 ![config-4](https://user-images.githubusercontent.com/6020549/79813216-fae74080-83b5-11ea-904f-587c6cea2a1c.jpg)
 
-# Installation for ESP32
-```
-git clone https://github.com/nopnop2002/esp-idf-93Cx6
-cd esp-idf-93Cx6
-idf.py set-target esp32
-idf.py menuconfig
-idf.py flash
-```
-
-# Installation for ESP32-S2
-```
-git clone https://github.com/nopnop2002/esp-idf-93Cx6
-cd esp-idf-93Cx6
-idf.py set-target esp32s2
-idf.py menuconfig
-idf.py flash
-```
-
-# Installation for ESP32-C3
-```
-git clone https://github.com/nopnop2002/esp-idf-93Cx6
-cd esp-idf-93Cx6
-idf.py set-target esp32c3
-idf.py menuconfig
-idf.py flash
-```
-
 # Interface
 
 It look like SPI.   
 But CS is ACTIVE HIGH.   
 And data bit is not always 8bit.   
 
----
 
 # Memory size vs Organization
 
@@ -64,7 +49,6 @@ When Organization Select (ORG) is connected to Ground (VSS) the x8 organization 
 |93C76|8192|1024|512|
 |93C86|16384|2048|1024|
 
----
 
 # API
 
@@ -99,20 +83,19 @@ void eeprom_write(EEPROM_T *dev, uint16_t addr, uint16_t value)
 uint16_t eeprom_read(EEPROM_T *dev, uint16_t addr)
 ```
 
----
 
 # Wireing for x8 Organization
 
-|93Cx6||ESP32|ESP32-S2|ESP32-C3||
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|CS|--|GPIO12|GPIO12|GPIO1|(*1)|
-|SK|--|GPIO13|GPIO13|GPIO2|(*1)|
-|DI|--|GPIO14|GPIO17|GPIO9|(*1)|
-|DO|--|GPIO15|GPIO18|GPIO10|(*1)(*2)|
-|GND|--|GND|GND|GND||
-|ORG|--|GND|GND|GND||
-|DC|--|N/C|N/C|N/C||
-|Vcc|--|5V|5V|5V|(*2)|
+|#|93Cx6||ESP32|ESP32-S2/S3|ESP32-C2/C3||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|1|CS|--|GPIO12|GPIO12|GPIO0|(*1)|
+|2|SK|--|GPIO13|GPIO13|GPIO1|(*1)|
+|3|DI|--|GPIO14|GPIO17|GPIO2|(*1)|
+|4|DO|--|GPIO15|GPIO18|GPIO3|(*1)(*2)|
+|5|GND|--|GND|GND|GND||
+|6|ORG|--|GND|GND|GND||
+|7|DC|--|N/C|N/C|N/C||
+|8|Vcc|--|5V|5V|5V|(*2)|
 
 (*1)   
 You can change any GPIO using menuconfig.   
@@ -126,16 +109,16 @@ You can change any GPIO using menuconfig.
 
 # Wireing for x16 Organization
 
-|93Cx6||ESP32|ESP32-S2|ESP32-C3||
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|CS|--|GPIO12|GPIO12|GPIO1|(*1)|
-|SK|--|GPIO13|GPIO13|GPIO2|(*1)|
-|DI|--|GPIO14|GPIO17|GPIO9|(*1)|
-|DO|--|GPIO15|GPIO18|GPIO10|(*1)(*2)|
-|GND|--|GND|GND|GND||
-|ORG|--|5V|5V|5V|(*2)|
-|DC|--|N/C|N/C|N/C||
-|Vcc|--|5V|5V|5V|(*2)|
+|#|93Cx6||ESP32|ESP32-S2|ESP32-C3||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|1|CS|--|GPIO12|GPIO12|GPIO1|(*1)|
+|2|SK|--|GPIO13|GPIO13|GPIO2|(*1)|
+|3|DI|--|GPIO14|GPIO17|GPIO9|(*1)|
+|4|DO|--|GPIO15|GPIO18|GPIO10|(*1)(*2)|
+|5|GND|--|GND|GND|GND||
+|6|ORG|--|5V|5V|5V|(*2)|
+|7|DC|--|N/C|N/C|N/C||
+|8|Vcc|--|5V|5V|5V|(*2)|
 
 (*1)   
 You can change any GPIO using menuconfig.   
@@ -148,7 +131,6 @@ You can change any GPIO using menuconfig.
 
 ![esp32-93cx6-word](https://user-images.githubusercontent.com/6020549/79865692-885a7d00-8416-11ea-95f6-ebd20640af7c.jpg)
 
----
 
 # 93C46
 ![93c46-bytes](https://user-images.githubusercontent.com/6020549/79813724-67af0a80-83b7-11ea-9298-2411dc440067.jpg)
@@ -170,7 +152,6 @@ You can change any GPIO using menuconfig.
 
 ![93c86-word](https://user-images.githubusercontent.com/6020549/79813802-9c22c680-83b7-11ea-8021-bd04add299f9.jpg)
 
----
 # Note
 esp-idf provides a similar sample [here](https://github.com/espressif/esp-idf/tree/master/examples/peripherals/spi_master/hd_eeprom).   
 But it only supports 93C46.   

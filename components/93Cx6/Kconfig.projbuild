@@ -1,5 +1,13 @@
 menu "EEPROM Configuration"
 
+	config GPIO_RANGE_MAX
+		int
+		default 33 if IDF_TARGET_ESP32
+		default 46 if IDF_TARGET_ESP32S2
+		default 48 if IDF_TARGET_ESP32S3
+		default 18 if IDF_TARGET_ESP32C2
+		default 19 if IDF_TARGET_ESP32C3
+
 	choice MODEL
 		prompt "EEPROM MODEL"
 		default 93C46
@@ -29,10 +37,10 @@ menu "EEPROM Configuration"
 
 	config CS_GPIO
 		int "CS GPIO number"
-		range 0 34
+		range 0 GPIO_RANGE_MAX
 		default 12 if IDF_TARGET_ESP32
-		default 12 if IDF_TARGET_ESP32S2
-		default 1  if IDF_TARGET_ESP32C3
+		default 12 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+		default  0 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
 		help
 			GPIO number (IOxx) to CS.
 			Some GPIOs are used for other purposes (flash connections, etc.).
@@ -40,10 +48,10 @@ menu "EEPROM Configuration"
 
 	config SK_GPIO
 		int "SK GPIO number"
-		range 0 34
+		range 0 GPIO_RANGE_MAX
 		default 13 if IDF_TARGET_ESP32
-		default 13 if IDF_TARGET_ESP32S2
-		default 2  if IDF_TARGET_ESP32C3
+		default 13 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+		default  1 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
 		help
 			GPIO number (IOxx) to SCK.
 			Some GPIOs are used for other purposes (flash connections, etc.).
@@ -51,10 +59,10 @@ menu "EEPROM Configuration"
 
 	config DI_GPIO
 		int "DI GPIO number"
-		range 0 34
+		range 0 GPIO_RANGE_MAX
 		default 14 if IDF_TARGET_ESP32
-		default 17 if IDF_TARGET_ESP32S2
-		default 9  if IDF_TARGET_ESP32C3
+		default 17 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+		default  2 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
 		help
 			GPIO number (IOxx) to DI.
 			Some GPIOs are used for other purposes (flash connections, etc.).
@@ -62,10 +70,10 @@ menu "EEPROM Configuration"
 
 	config DO_GPIO
 		int "DO GPIO number"
-		range 0 39
+		range 0 GPIO_RANGE_MAX
 		default 15 if IDF_TARGET_ESP32
-		default 18 if IDF_TARGET_ESP32S2
-		default 10 if IDF_TARGET_ESP32C3
+		default 18 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+		default  3 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
 		help
 			GPIO number (IOxx) to DO.
 			Some GPIOs are used for other purposes (flash connections, etc.).
