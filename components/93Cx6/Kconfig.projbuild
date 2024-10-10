@@ -7,6 +7,8 @@ menu "EEPROM Configuration"
 		default 48 if IDF_TARGET_ESP32S3
 		default 18 if IDF_TARGET_ESP32C2
 		default 19 if IDF_TARGET_ESP32C3
+		default 30 if IDF_TARGET_ESP32C6
+		default 27 if IDF_TARGET_ESP32H2
 
 	choice MODEL
 		prompt "EEPROM MODEL"
@@ -40,7 +42,7 @@ menu "EEPROM Configuration"
 		range 0 GPIO_RANGE_MAX
 		default 12 if IDF_TARGET_ESP32
 		default 12 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-		default  0 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+		default  0 # C3 and others
 		help
 			GPIO number (IOxx) to CS.
 			Some GPIOs are used for other purposes (flash connections, etc.).
@@ -51,7 +53,7 @@ menu "EEPROM Configuration"
 		range 0 GPIO_RANGE_MAX
 		default 13 if IDF_TARGET_ESP32
 		default 13 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-		default  1 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+		default  1 # C3 and others
 		help
 			GPIO number (IOxx) to SCK.
 			Some GPIOs are used for other purposes (flash connections, etc.).
@@ -62,7 +64,7 @@ menu "EEPROM Configuration"
 		range 0 GPIO_RANGE_MAX
 		default 14 if IDF_TARGET_ESP32
 		default 17 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-		default  2 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+		default  2 # C3 and others
 		help
 			GPIO number (IOxx) to DI.
 			Some GPIOs are used for other purposes (flash connections, etc.).
@@ -73,7 +75,7 @@ menu "EEPROM Configuration"
 		range 0 GPIO_RANGE_MAX
 		default 15 if IDF_TARGET_ESP32
 		default 18 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-		default  3 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+		default  3 # C3 and others
 		help
 			GPIO number (IOxx) to DO.
 			Some GPIOs are used for other purposes (flash connections, etc.).
@@ -95,5 +97,4 @@ menu "EEPROM Configuration"
 	endchoice
 
 endmenu
-
 

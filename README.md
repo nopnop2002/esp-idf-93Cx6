@@ -2,14 +2,15 @@
 Three-Wire Serial EEPROM Driver for esp-idf.
 
 # Software requirements   
-ESP-IDF V4.4/V5.0.   
-ESP-IDF V5.0 is required when using ESP32-C2.   
+ESP-IDF V5.0 or later.   
+ESP-IDF V4.4 release branch reached EOL in July 2024.   
+ESP-IDF V5.1 is required when using ESP32C6 and ESP32H2.   
 
 # Installation
 ```
 git clone https://github.com/nopnop2002/esp-idf-93Cx6
 cd esp-idf-93Cx6
-idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3}
+idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3/esp32c6/esp32h2}
 idf.py menuconfig
 idf.py flash
 ```
